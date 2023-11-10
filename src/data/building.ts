@@ -3,7 +3,7 @@ import { ResourceType, time_cost_ms } from "./types";
 const {
     min_ms,
     hour_ms,
-    day_ms,
+    // day_ms,
 } = time_cost_ms;
 
 export const military_buildings_upgrade_cost = {
