@@ -1,6 +1,11 @@
-# Tauri + React + Typescript
+# COC ToolBox
+> Inspired by project [COC Calculator](https://www.cocservice.top/p/295).
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+> 🛠️ This project is still under development.
+
+## Tech Stack
+
+This project is based on Tauri, React and Typescript in Vite.
 
 ## Recommended IDE Setup
 
