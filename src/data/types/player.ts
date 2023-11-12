@@ -1,16 +1,52 @@
 
 export type PlayerInfo = {
+    /**
+     * Player tag
+     */
     tag: string,
+
+    /**
+     * Player name
+     */
     name: string,
+
+    /**
+     * Player town hall level
+     */
     townHallLevel: number,
+
+    /**
+     * Player town hall weapon level
+     */
     townHallWeaponLevel: number,
+
+    /**
+     * Player exp level
+     */
     expLevel: number,
+
+    /**
+     * Player trophies (home village)
+     */
     trophies: number,
+
+    /**
+     * Player best trophies (home village)
+     */
     bestTrophies: number,
+
+    /**
+     * Player war stars
+     */
     warStars: number,
     attackWins: number,
     defenseWins: number,
+
+    /**
+     * Player builder hall level
+     */
     builderHallLevel: number,
+
     builderBaseTrophies: number,
     versusTrophies: number,
     bestBuilderBaseTrophies: number,

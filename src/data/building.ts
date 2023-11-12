@@ -9,7 +9,7 @@ const {
 export const military_buildings_upgrade_cost = {
     research: {
         max_level: 13,
-        res_type: ResourceType.HolyWater,
+        res_type: ResourceType.Elixir,
         // townhall_requirements: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
         costs: [
             {

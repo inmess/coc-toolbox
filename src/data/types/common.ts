@@ -1,6 +1,6 @@
 
 export enum ResourceType {
-    HolyWater = "holy-water",
+    Elixir = "elixir",
     Gold = "gold",
     DarkElixir = "dark-elixir",
 }

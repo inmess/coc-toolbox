@@ -3,14 +3,18 @@ import { useCallback, useState } from "react";
 // import { invoke } from "@tauri-apps/api/tauri";
 import "./App.css";
 import { get_player } from "./services/player";
-import { PlayerInfo } from "./utils/types";
+import { PlayerInfo } from "@/data/types";
 
 function App() {
     const [playerInfo, setPlayerInfo] = useState<PlayerInfo | null>(null);
+
+    
     const [name, setName] = useState("");
 
     const greet = useCallback(async () => {
         console.log('requesting');
+
+
         
         const res = await get_player(name);
         console.log(res);
