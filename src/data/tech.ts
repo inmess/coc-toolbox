@@ -1,17 +1,10 @@
 import { 
     ResourceType, 
-    // time_cost_ms 
 } from "./types";
 
-// const {
-//     // min_ms,
-//     hour_ms,
-//     day_ms,
-// } = time_cost_ms;
-
-export const troops_upgrade_usage = {
+export const troops_info = {
     "barbarian": {
-        "res_type": "elixir",
+        "res_type": ResourceType.Elixir,
         "level_data": [
             {
                 "Damage per Second": 8,
@@ -115,7 +108,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "electro_dragon": {
-        "res_type": "elixir",
+        "res_type": ResourceType.Elixir,
         "level_data": [
             {
                 "Damage per Second(Primary Target)": 240,
@@ -180,7 +173,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "dragon": {
-        "res_type": "elixir",
+        "res_type": ResourceType.Elixir,
         "level_data": [
             {
                 "Damage per Second": 140,
@@ -275,7 +268,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "yeti": {
-        "res_type": "elixir",
+        "res_type": ResourceType.Elixir,
         "level_data": [
             {
                 "Damage per Second": 230,
@@ -330,7 +323,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "archer": {
-        "res_type": "elixir",
+        "res_type": ResourceType.Elixir,
         "level_data": [
             {
                 "Damage per Second": 7,
@@ -434,7 +427,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "wizard": {
-        "res_type": "elixir",
+        "res_type": ResourceType.Elixir,
         "level_data": [
             {
                 "Damage per Second": 50,
@@ -538,7 +531,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "healer": {
-        "res_type": "elixir",
+        "res_type": ResourceType.Elixir,
         "level_data": [
             {
                 "Healing per Second": 36,
@@ -623,7 +616,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "miner": {
-        "res_type": "elixir",
+        "res_type": ResourceType.Elixir,
         "level_data": [
             {
                 "Damage per Second": 80,
@@ -709,7 +702,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "wall_breaker": {
-        "res_type": "elixir",
+        "res_type": ResourceType.Elixir,
         "level_data": [
             {
                 "Damage": 6,
@@ -835,7 +828,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "pekka": {
-        "res_type": "elixir",
+        "res_type": ResourceType.Elixir,
         "level_data": [
             {
                 "Damage per Second": 260,
@@ -930,7 +923,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "dragon_rider": {
-        "res_type": "elixir",
+        "res_type": ResourceType.Elixir,
         "level_data": [
             {
                 "Damage per Second": 340,
@@ -965,7 +958,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "electro_titan": {
-        "res_type": "elixir",
+        "res_type": ResourceType.Elixir,
         "level_data": [
             {
                 "Damage per Second": 180,
@@ -1003,7 +996,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "baby_dragon": {
-        "res_type": "builder-base",
+        "res_type": ResourceType.BuilderBaseElixir,
         "level_data": [
             {
                 "Damage per Second": 62,
@@ -1184,7 +1177,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "goblin": {
-        "res_type": "elixir",
+        "res_type": ResourceType.Elixir,
         "level_data": [
             {
                 "Damage per Second": 11,
@@ -1279,7 +1272,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "giant": {
-        "res_type": "elixir",
+        "res_type": ResourceType.Elixir,
         "level_data": [
             {
                 "Damage per Second": 11,
@@ -1383,7 +1376,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "balloon": {
-        "res_type": "elixir",
+        "res_type": ResourceType.Elixir,
         "level_data": [
             {
                 "Damage per Second": 25,
@@ -1488,7 +1481,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "valkyrie": {
-        "res_type": "dark-elixir",
+        "res_type": ResourceType.DarkElixir,
         "level_data": [
             {
                 "Damage per Second": 94,
@@ -1583,7 +1576,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "headhunter": {
-        "res_type": "dark-elixir",
+        "res_type": ResourceType.DarkElixir,
         "level_data": [
             {
                 "Damage per Second": 105,
@@ -1624,7 +1617,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "ice_golem": {
-        "res_type": "dark-elixir",
+        "res_type": ResourceType.DarkElixir,
         "level_data": [
             {
                 "Damage per Second": 24,
@@ -1706,7 +1699,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "bowler": {
-        "res_type": "dark-elixir",
+        "res_type": ResourceType.DarkElixir,
         "level_data": [
             {
                 "Damage per Second": 60,
@@ -1774,7 +1767,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "golem": {
-        "res_type": "dark-elixir",
+        "res_type": ResourceType.DarkElixir,
         "level_data": [
             {
                 "Damage per Second": 35,
@@ -1911,7 +1904,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "apprentice_warden": {
-        "res_type": "dark-elixir",
+        "res_type": ResourceType.DarkElixir,
         "level_data": [
             {
                 "Damage per Second": 170,
@@ -1956,7 +1949,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "lava_hound": {
-        "res_type": "dark-elixir",
+        "res_type": ResourceType.DarkElixir,
         "level_data": [
             {
                 "Damage per Second": 10,
@@ -2027,7 +2020,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "witch": {
-        "res_type": "dark-elixir",
+        "res_type": ResourceType.DarkElixir,
         "level_data": [
             {
                 "Damage per Second": 100,
@@ -2092,7 +2085,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "hog_rider": {
-        "res_type": "dark-elixir",
+        "res_type": ResourceType.DarkElixir,
         "level_data": [
             {
                 "Damage per Second": 60,
@@ -2205,7 +2198,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "minion": {
-        "res_type": "dark-elixir",
+        "res_type": ResourceType.DarkElixir,
         "level_data": [
             {
                 "Damage per Second": 38,
@@ -2309,7 +2302,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "sneaky_archer": {
-        "res_type": "builder-base",
+        "res_type": ResourceType.BuilderBaseElixir,
         "level_data": [
             {
                 "Damage per Second": 60,
@@ -2534,7 +2527,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "night_witch": {
-        "res_type": "builder-base",
+        "res_type": ResourceType.BuilderBaseElixir,
         "level_data": [
             {
                 "Damage per Second": 176,
@@ -2683,7 +2676,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "cannon_cart": {
-        "res_type": "builder-base",
+        "res_type": ResourceType.BuilderBaseElixir,
         "level_data": [
             {
                 "Damage per Second": 115,
@@ -2814,7 +2807,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "hog_glider": {
-        "res_type": "builder-base",
+        "res_type": ResourceType.BuilderBaseElixir,
         "level_data": [
             {
                 "Damage": 180,
@@ -2873,7 +2866,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "beta_minion": {
-        "res_type": "builder-base",
+        "res_type": ResourceType.BuilderBaseElixir,
         "level_data": [
             {
                 "Damage per Second": 60,
@@ -3094,7 +3087,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "electrofire_wizard": {
-        "res_type": "builder-base",
+        "res_type": ResourceType.BuilderBaseElixir,
         "level_data": [
             {
                 "Initial DPS": 220,
@@ -3139,7 +3132,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "raged_barbarian": {
-        "res_type": "builder-base",
+        "res_type": ResourceType.BuilderBaseElixir,
         "level_data": [
             {
                 "Damage per Second": 45,
@@ -3364,7 +3357,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "power_pekka": {
-        "res_type": "builder-base",
+        "res_type": ResourceType.BuilderBaseElixir,
         "level_data": [
             {
                 "Damage per Second": 420,
@@ -3449,7 +3442,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "boxer_giant": {
-        "res_type": "builder-base",
+        "res_type": ResourceType.BuilderBaseElixir,
         "level_data": [
             {
                 "Damage per Second": 65,
@@ -3652,7 +3645,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "bomber": {
-        "res_type": "builder-base",
+        "res_type": ResourceType.BuilderBaseElixir,
         "level_data": [
             {
                 "Damage per Second": 80,
@@ -3849,7 +3842,7 @@ export const troops_upgrade_usage = {
         ]
     },
     "drop_ship": {
-        "res_type": "builder-base",
+        "res_type": ResourceType.BuilderBaseElixir,
         "level_data": [
             {
                 "Hitpoints": "3,400",
@@ -3953,4 +3946,6 @@ export const troops_upgrade_usage = {
             }
         ]
     }
-}
+};
+
+
