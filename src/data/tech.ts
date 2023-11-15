@@ -2,7 +2,20 @@ import {
     ResourceType, 
 } from "./types";
 
-export const troops_info = {
+type UnitLevelData = {
+    [key: string]: {
+        res_type: ResourceType,
+        level_data: {
+            res_cost: number | null,
+            time_cost: number | null,
+            lab_level: number | null,
+            level: number,
+            [key: string]: any
+        }[],
+    }
+}
+
+const troops_info: UnitLevelData = {
     "barbarian": {
         "res_type": ResourceType.Elixir,
         "level_data": [
@@ -3949,3 +3962,731 @@ export const troops_info = {
 };
 
 
+const spells_info: UnitLevelData = {
+    "rage_spell": {
+        "res_type": ResourceType.Elixir,
+        "level_data": [
+            {
+                "Damage Increase": "130%",
+                "Speed Increase": 20,
+                "level": 1,
+                "res_cost": null,
+                "time_cost": null,
+                "lab_level": null
+            },
+            {
+                "Damage Increase": "140%",
+                "Speed Increase": 22,
+                "level": 2,
+                "res_cost": 400000,
+                "time_cost": 43200000,
+                "lab_level": 3.0
+            },
+            {
+                "Damage Increase": "150%",
+                "Speed Increase": 24,
+                "level": 3,
+                "res_cost": 800000,
+                "time_cost": 86400000,
+                "lab_level": 4.0
+            },
+            {
+                "Damage Increase": "160%",
+                "Speed Increase": 26,
+                "level": 4,
+                "res_cost": 1600000,
+                "time_cost": 172800000,
+                "lab_level": 5.0
+            },
+            {
+                "Damage Increase": "170%",
+                "Speed Increase": 28,
+                "level": 5,
+                "res_cost": 2400000,
+                "time_cost": 345600000,
+                "lab_level": 6.0
+            },
+            {
+                "Damage Increase": "180%",
+                "Speed Increase": 30,
+                "level": 6,
+                "res_cost": 7000000,
+                "time_cost": 604800000,
+                "lab_level": 10.0
+            }
+        ]
+    },
+    "recall_spell": {
+        "res_type": ResourceType.Elixir,
+        "level_data": [
+            {
+                "Recalled Capacity": 83,
+                "level": 1,
+                "res_cost": null,
+                "time_cost": null,
+                "lab_level": null
+            },
+            {
+                "Recalled Capacity": 89,
+                "level": 2,
+                "res_cost": 7500000,
+                "time_cost": 993600000,
+                "lab_level": 11.0
+            },
+            {
+                "Recalled Capacity": 95,
+                "level": 3,
+                "res_cost": 14000000,
+                "time_cost": 1339200000,
+                "lab_level": 12.0
+            },
+            {
+                "Recalled Capacity": 101,
+                "level": 4,
+                "res_cost": 17500000,
+                "time_cost": 1512000000,
+                "lab_level": 13.0
+            }
+        ]
+    },
+    "freeze_spell": {
+        "res_type": ResourceType.Elixir,
+        "level_data": [
+            {
+                "Freeze Time": "2.5 seconds",
+                "level": 1,
+                "res_cost": null,
+                "time_cost": null,
+                "lab_level": null
+            },
+            {
+                "Freeze Time": "3.0 seconds",
+                "level": 2,
+                "res_cost": 1200000,
+                "time_cost": 129600000,
+                "lab_level": 7.0
+            },
+            {
+                "Freeze Time": "3.5 seconds",
+                "level": 3,
+                "res_cost": 1700000,
+                "time_cost": 223200000,
+                "lab_level": 8.0
+            },
+            {
+                "Freeze Time": "4.0 seconds",
+                "level": 4,
+                "res_cost": 3000000,
+                "time_cost": 367200000,
+                "lab_level": 8.0
+            },
+            {
+                "Freeze Time": "4.5 seconds",
+                "level": 5,
+                "res_cost": 4200000,
+                "time_cost": 518400000,
+                "lab_level": 8.0
+            },
+            {
+                "Freeze Time": "5.0 seconds",
+                "level": 6,
+                "res_cost": 6000000,
+                "time_cost": 669600000,
+                "lab_level": 9.0
+            },
+            {
+                "Freeze Time": "5.5 seconds",
+                "level": 7,
+                "res_cost": 7000000,
+                "time_cost": 691200000,
+                "lab_level": 10.0
+            }
+        ]
+    },
+    "lightning_spell": {
+        "res_type": ResourceType.Elixir,
+        "level_data": [
+            {
+                "Damage": 150,
+                "level": 1,
+                "res_cost": null,
+                "time_cost": null,
+                "lab_level": null
+            },
+            {
+                "Damage": 180,
+                "level": 2,
+                "res_cost": 50000,
+                "time_cost": 14400000,
+                "lab_level": 1.0
+            },
+            {
+                "Damage": 210,
+                "level": 3,
+                "res_cost": 100000,
+                "time_cost": 28800000,
+                "lab_level": 2.0
+            },
+            {
+                "Damage": 240,
+                "level": 4,
+                "res_cost": 200000,
+                "time_cost": 43200000,
+                "lab_level": 3.0
+            },
+            {
+                "Damage": 270,
+                "level": 5,
+                "res_cost": 600000,
+                "time_cost": 86400000,
+                "lab_level": 6.0
+            },
+            {
+                "Damage": 320,
+                "level": 6,
+                "res_cost": 1500000,
+                "time_cost": 345600000,
+                "lab_level": 7.0
+            },
+            {
+                "Damage": 400,
+                "level": 7,
+                "res_cost": 2500000,
+                "time_cost": 518400000,
+                "lab_level": 8.0
+            },
+            {
+                "Damage": 480,
+                "level": 8,
+                "res_cost": 4200000,
+                "time_cost": 626400000,
+                "lab_level": 9.0
+            },
+            {
+                "Damage": 560,
+                "level": 9,
+                "res_cost": 6300000,
+                "time_cost": 691200000,
+                "lab_level": 10.0
+            },
+            {
+                "Damage": 600,
+                "level": 10,
+                "res_cost": 16000000,
+                "time_cost": 1382400000,
+                "lab_level": 13.0
+            }
+        ]
+    },
+    "healing_spell": {
+        "res_type": ResourceType.Elixir,
+        "level_data": [
+            {
+                "Total Healing": "600",
+                "Healing per Pulse": 15,
+                "Total Healing on Heroes": "330",
+                "level": 1,
+                "res_cost": null,
+                "time_cost": null,
+                "lab_level": null
+            },
+            {
+                "Total Healing": "800",
+                "Healing per Pulse": 20,
+                "Total Healing on Heroes": "440",
+                "level": 2,
+                "res_cost": 75000,
+                "time_cost": 18000000,
+                "lab_level": 2.0
+            },
+            {
+                "Total Healing": "1,000",
+                "Healing per Pulse": 25,
+                "Total Healing on Heroes": "550",
+                "level": 3,
+                "res_cost": 150000,
+                "time_cost": 36000000,
+                "lab_level": 4.0
+            },
+            {
+                "Total Healing": "1,200",
+                "Healing per Pulse": 30,
+                "Total Healing on Heroes": "660",
+                "level": 4,
+                "res_cost": 300000,
+                "time_cost": 72000000,
+                "lab_level": 5.0
+            },
+            {
+                "Total Healing": "1,400",
+                "Healing per Pulse": 35,
+                "Total Healing on Heroes": "770",
+                "level": 5,
+                "res_cost": 900000,
+                "time_cost": 129600000,
+                "lab_level": 6.0
+            },
+            {
+                "Total Healing": "1,600",
+                "Healing per Pulse": 40,
+                "Total Healing on Heroes": "880",
+                "level": 6,
+                "res_cost": 1800000,
+                "time_cost": 345600000,
+                "lab_level": 7.0
+            },
+            {
+                "Total Healing": "1,800",
+                "Healing per Pulse": 45,
+                "Total Healing on Heroes": "990",
+                "level": 7,
+                "res_cost": 3000000,
+                "time_cost": 518400000,
+                "lab_level": 8.0
+            },
+            {
+                "Total Healing": "2,000",
+                "Healing per Pulse": 50,
+                "Total Healing on Heroes": "1,100",
+                "level": 8,
+                "res_cost": 8500000,
+                "time_cost": 820800000,
+                "lab_level": 11.0
+            },
+            {
+                "Total Healing": "2,200",
+                "Healing per Pulse": 55,
+                "Total Healing on Heroes": "1,210",
+                "level": 9,
+                "res_cost": 17000000,
+                "time_cost": 1468800000,
+                "lab_level": 13.0
+            }
+        ]
+    },
+    "jump_spell": {
+        "res_type": ResourceType.Elixir,
+        "level_data": [
+            {
+                "Spell Duration": "20 seconds",
+                "level": 1,
+                "res_cost": null,
+                "time_cost": null,
+                "lab_level": null
+            },
+            {
+                "Spell Duration": "40 seconds",
+                "level": 2,
+                "res_cost": 2000000,
+                "time_cost": 345600000,
+                "lab_level": 5.0
+            },
+            {
+                "Spell Duration": "60 seconds",
+                "level": 3,
+                "res_cost": 3400000,
+                "time_cost": 518400000,
+                "lab_level": 8.0
+            },
+            {
+                "Spell Duration": "80 seconds",
+                "level": 4,
+                "res_cost": 7200000,
+                "time_cost": 777600000,
+                "lab_level": 11.0
+            },
+            {
+                "Spell Duration": "100 seconds",
+                "level": 5,
+                "res_cost": 16500000,
+                "time_cost": 1425600000,
+                "lab_level": 13.0
+            }
+        ]
+    },
+    "invisibility_spell": {
+        "res_type": ResourceType.Elixir,
+        "level_data": [
+            {
+                "Duration": "3.75s",
+                "level": 1,
+                "res_cost": null,
+                "time_cost": null,
+                "lab_level": null
+            },
+            {
+                "Duration": "4s",
+                "level": 2,
+                "res_cost": 5600000,
+                "time_cost": 475200000,
+                "lab_level": 9.0
+            },
+            {
+                "Duration": "4.25s",
+                "level": 3,
+                "res_cost": 7500000,
+                "time_cost": 604800000,
+                "lab_level": 10.0
+            },
+            {
+                "Duration": "4.5s",
+                "level": 4,
+                "res_cost": 9000000,
+                "time_cost": 820800000,
+                "lab_level": 11.0
+            }
+        ]
+    },
+    "clone_spell": {
+        "res_type": ResourceType.Elixir,
+        "level_data": [
+            {
+                "Cloned Capacity": 22,
+                "level": 1,
+                "res_cost": null,
+                "time_cost": null,
+                "lab_level": null
+            },
+            {
+                "Cloned Capacity": 24,
+                "level": 2,
+                "res_cost": 2100000,
+                "time_cost": 151200000,
+                "lab_level": 8.0
+            },
+            {
+                "Cloned Capacity": 26,
+                "level": 3,
+                "res_cost": 3400000,
+                "time_cost": 302400000,
+                "lab_level": 8.0
+            },
+            {
+                "Cloned Capacity": 28,
+                "level": 4,
+                "res_cost": 4200000,
+                "time_cost": 345600000,
+                "lab_level": 9.0
+            },
+            {
+                "Cloned Capacity": 30,
+                "level": 5,
+                "res_cost": 5600000,
+                "time_cost": 604800000,
+                "lab_level": 9.0
+            },
+            {
+                "Cloned Capacity": 34,
+                "level": 6,
+                "res_cost": 7200000,
+                "time_cost": 777600000,
+                "lab_level": 11.0
+            },
+            {
+                "Cloned Capacity": 38,
+                "level": 7,
+                "res_cost": 15500000,
+                "time_cost": 1360800000,
+                "lab_level": 12.0
+            },
+            {
+                "Cloned Capacity": 42,
+                "level": 8,
+                "res_cost": 18000000,
+                "time_cost": 1512000000,
+                "lab_level": 13.0
+            }
+        ]
+    },
+    "skeleton_spell": {
+        "res_type": ResourceType.DarkElixir,
+        "level_data": [
+            {
+                "Skeletons generated": 12,
+                "level": 1,
+                "res_cost": null,
+                "time_cost": null,
+                "lab_level": null
+            },
+            {
+                "Skeletons generated": 13,
+                "level": 2,
+                "res_cost": 22000,
+                "time_cost": 115200000,
+                "lab_level": 8.0
+            },
+            {
+                "Skeletons generated": 14,
+                "level": 3,
+                "res_cost": 34000,
+                "time_cost": 223200000,
+                "lab_level": 8.0
+            },
+            {
+                "Skeletons generated": 15,
+                "level": 4,
+                "res_cost": 50000,
+                "time_cost": 367200000,
+                "lab_level": 9.0
+            },
+            {
+                "Skeletons generated": 16,
+                "level": 5,
+                "res_cost": 80000,
+                "time_cost": 475200000,
+                "lab_level": 10.0
+            },
+            {
+                "Skeletons generated": 17,
+                "level": 6,
+                "res_cost": 100000,
+                "time_cost": 604800000,
+                "lab_level": 10.0
+            },
+            {
+                "Skeletons generated": 18,
+                "level": 7,
+                "res_cost": 150000,
+                "time_cost": 777600000,
+                "lab_level": 11.0
+            },
+            {
+                "Skeletons generated": 19,
+                "level": 8,
+                "res_cost": 320000,
+                "time_cost": 1512000000,
+                "lab_level": 13.0
+            }
+        ]
+    },
+    "earthquake_spell": {
+        "res_type": ResourceType.DarkElixir,
+        "level_data": [
+            {
+                "Damage": "14.5%*",
+                "Radius": "3.5 tiles",
+                "level": 1,
+                "res_cost": null,
+                "time_cost": null,
+                "lab_level": null
+            },
+            {
+                "Damage": "17%",
+                "Radius": "3.8 tiles",
+                "level": 2,
+                "res_cost": 15000,
+                "time_cost": 64800000,
+                "lab_level": 6.0
+            },
+            {
+                "Damage": "21%",
+                "Radius": "4.1 tiles",
+                "level": 3,
+                "res_cost": 30000,
+                "time_cost": 129600000,
+                "lab_level": 7.0
+            },
+            {
+                "Damage": "25%",
+                "Radius": "4.4 tiles",
+                "level": 4,
+                "res_cost": 51000,
+                "time_cost": 367200000,
+                "lab_level": 8.0
+            },
+            {
+                "Damage": "29%",
+                "Radius": "4.7 tiles",
+                "level": 5,
+                "res_cost": 84000,
+                "time_cost": 669600000,
+                "lab_level": 9.0
+            }
+        ]
+    },
+    "bat_spell": {
+        "res_type": ResourceType.DarkElixir,
+        "level_data": [
+            {
+                "Bats generated": 7,
+                "level": 1,
+                "res_cost": null,
+                "time_cost": null,
+                "lab_level": null
+            },
+            {
+                "Bats generated": 9,
+                "level": 2,
+                "res_cost": 26000,
+                "time_cost": 151200000,
+                "lab_level": 8.0
+            },
+            {
+                "Bats generated": 11,
+                "level": 3,
+                "res_cost": 51000,
+                "time_cost": 302400000,
+                "lab_level": 8.0
+            },
+            {
+                "Bats generated": 16,
+                "level": 4,
+                "res_cost": 70000,
+                "time_cost": 453600000,
+                "lab_level": 9.0
+            },
+            {
+                "Bats generated": 21,
+                "level": 5,
+                "res_cost": 95000,
+                "time_cost": 518400000,
+                "lab_level": 10.0
+            },
+            {
+                "Bats generated": 22,
+                "level": 6,
+                "res_cost": 330000,
+                "time_cost": 1555200000,
+                "lab_level": 13.0
+            }
+        ]
+    },
+    "poison_spell": {
+        "res_type": ResourceType.DarkElixir,
+        "level_data": [
+            {
+                "Max damage per second": 90,
+                "Speed Decrease": "26%",
+                "Attack Rate Decrease": "35%",
+                "level": 1,
+                "res_cost": null,
+                "time_cost": null,
+                "lab_level": null
+            },
+            {
+                "Max damage per second": 115,
+                "Speed Decrease": "30%",
+                "Attack Rate Decrease": "40%",
+                "level": 2,
+                "res_cost": 12000,
+                "time_cost": 28800000,
+                "lab_level": 6.0
+            },
+            {
+                "Max damage per second": 145,
+                "Speed Decrease": "34%",
+                "Attack Rate Decrease": "45%",
+                "level": 3,
+                "res_cost": 25000,
+                "time_cost": 86400000,
+                "lab_level": 7.0
+            },
+            {
+                "Max damage per second": 180,
+                "Speed Decrease": "38%",
+                "Attack Rate Decrease": "50%",
+                "level": 4,
+                "res_cost": 43000,
+                "time_cost": 223200000,
+                "lab_level": 8.0
+            },
+            {
+                "Max damage per second": 220,
+                "Speed Decrease": "40%",
+                "Attack Rate Decrease": "55%",
+                "level": 5,
+                "res_cost": 70000,
+                "time_cost": 540000000,
+                "lab_level": 9.0
+            },
+            {
+                "Max damage per second": 260,
+                "Speed Decrease": "42%",
+                "Attack Rate Decrease": "60%",
+                "level": 6,
+                "res_cost": 110000,
+                "time_cost": 604800000,
+                "lab_level": 10.0
+            },
+            {
+                "Max damage per second": 280,
+                "Speed Decrease": "44%",
+                "Attack Rate Decrease": "65%",
+                "level": 7,
+                "res_cost": 155000,
+                "time_cost": 820800000,
+                "lab_level": 11.0
+            },
+            {
+                "Max damage per second": 300,
+                "Speed Decrease": "46%",
+                "Attack Rate Decrease": "68%",
+                "level": 8,
+                "res_cost": 285000,
+                "time_cost": 1447200000,
+                "lab_level": 12.0
+            },
+            {
+                "Max damage per second": 320,
+                "Speed Decrease": "48%",
+                "Attack Rate Decrease": "70%",
+                "level": 9,
+                "res_cost": 320000,
+                "time_cost": 1512000000,
+                "lab_level": 13.0
+            }
+        ]
+    },
+    "haste_spell": {
+        "res_type": ResourceType.DarkElixir,
+        "level_data": [
+            {
+                "Speed Increase": 28,
+                "Spell Duration": "10 seconds",
+                "level": 1,
+                "res_cost": null,
+                "time_cost": null,
+                "lab_level": null
+            },
+            {
+                "Speed Increase": 34,
+                "Spell Duration": "15 seconds",
+                "level": 2,
+                "res_cost": 20000,
+                "time_cost": 129600000,
+                "lab_level": 7.0
+            },
+            {
+                "Speed Increase": 40,
+                "Spell Duration": "20 seconds",
+                "level": 3,
+                "res_cost": 34000,
+                "time_cost": 223200000,
+                "lab_level": 8.0
+            },
+            {
+                "Speed Increase": 46,
+                "Spell Duration": "25 seconds",
+                "level": 4,
+                "res_cost": 60000,
+                "time_cost": 432000000,
+                "lab_level": 8.0
+            },
+            {
+                "Speed Increase": 52,
+                "Spell Duration": "30 seconds",
+                "level": 5,
+                "res_cost": 77000,
+                "time_cost": 669600000,
+                "lab_level": 9.0
+            }
+        ]
+    }
+};
+
+const heroes_info: UnitLevelData = {};
+export default {
+    troops: troops_info,
+    spells: spells_info,
+    heroes: heroes_info,
+}
