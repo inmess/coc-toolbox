@@ -1,5 +1,6 @@
 // import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import path from "path";
 
 // // https://vitejs.dev/config/
 // export default defineConfig(async () => ({
@@ -26,6 +27,11 @@ export default defineConfig({
     server: {
         strictPort: true,
         port: 1420,
+    },
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, 'src'),
+        }
     },
     // to access the Tauri environment variables set by the CLI with information about the current target
     envPrefix: ['VITE_', 'TAURI_PLATFORM', 'TAURI_ARCH', 'TAURI_FAMILY', 'TAURI_PLATFORM_VERSION', 'TAURI_PLATFORM_TYPE', 'TAURI_DEBUG'],
