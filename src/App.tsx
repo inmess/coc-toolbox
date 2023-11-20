@@ -31,6 +31,10 @@ function App() {
                     {playerInfo.troops.filter(t => t.village == "home").map((troop, index) =>
                         <div key={index} className="flex flex-row justify-between p-4 w-1/2">
                             <h1>{troop.name}</h1>
+                            <img 
+                            width={75}
+                            height={75}
+                            src={`https://clashofclans.js.org/assets/${troop.name.replace(/ /gi, '_')}.png`} />
                             <h1>{troop.level}</h1>
                             <h1>{troop.hallMaxLevel}</h1>
                             {troop.level < troop.hallMaxLevel ? <h1>Not Max Level</h1> : <h1>Max</h1>}
