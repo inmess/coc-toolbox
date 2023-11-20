@@ -8,7 +8,6 @@ import PlayerHeader from "./components/frags/player-header";
 // import TagSearch from "./components/frags/tag-search";
 import usePlayers from "./utils/hooks/use-players";
 import HomeHeader from "@/components/organisms/home-header";
-
 function App() {
 
     // const [, setCurrTag] = useAtom(playerAtom);
@@ -20,6 +19,7 @@ function App() {
     // const [players] = useAtom(tagsAtom)
 
     return (
+        // <ToastContainer position="bottom-center">
         <div className="flex flex-col h-screen w-full justify-center item-center">
             <HomeHeader />
             {playerInfo && (
@@ -32,13 +32,14 @@ function App() {
                         <div key={index} className="flex flex-row justify-between p-4 w-1/2">
                             <h1>{troop.name}</h1>
                             <h1>{troop.level}</h1>
-                            <h1>{troop.maxLevel}</h1>
-                            {troop.level < troop.maxLevel ? <h1>Not Max Level</h1> : <h1>Max</h1>}
+                            <h1>{troop.hallMaxLevel}</h1>
+                            {troop.level < troop.hallMaxLevel ? <h1>Not Max Level</h1> : <h1>Max</h1>}
                         </div>
                     )}
                 </div>
             )}
         </div>
+        // </ToastContainer>
     );
 }
 

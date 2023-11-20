@@ -4,7 +4,6 @@ export const get_player = async (player_tag: string) => {
 
     const encoded_tag = encodeURIComponent(player_tag);
 
-    // console.log(`Bearer ${api_key}`);
     
     return await http.fetch(`https://ctbb.gabriel-cheng.com/v1/players/${encoded_tag}`, {
         method: 'GET',
@@ -12,5 +11,13 @@ export const get_player = async (player_tag: string) => {
             Authorization: "STAR_STRIKE_TOKEN",
         }
     })
+
+    // return await http.fetch(`http://localhost:3030/v1/players/${encoded_tag}`, {
+    //     method: 'GET',
+    //     headers: {
+    //         Authorization: "secret",
+    //     }
+    // })
+    
 }
 

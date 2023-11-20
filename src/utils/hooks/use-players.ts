@@ -3,6 +3,7 @@ import { useAtom } from "jotai";
 import { get_player } from "@/services/player";
 import { PlayerInfo } from "@/data/types";
 import { useCallback } from "react";
+import { toast } from 'react-toastify'
 
 export default function usePlayers () {
     const [tags, setTags] = useAtom(tagsAtom);
@@ -15,13 +16,20 @@ export default function usePlayers () {
     const add_tag = useCallback(
         (tag: string, name: string) => setTags([...tags, { tag, name }])
     , [tags, setTags]);
-    
 
     const query_and_set = useCallback(async (tag: string) => {
         try {
-            const res = await get_player(tag)
+            
+            const res = await toast.promise(get_player(tag), {
+                success: 'Got Player Info',
+                pending: 'Fetching Player Info...',
+                error: 'Failed to fetch player info'
+            })
             if(!res.ok) return;
             if(!res.data) return;
+
+            console.log(res.data);
+            
 
             const player_data = res.data as PlayerInfo;
 

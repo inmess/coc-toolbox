@@ -17,13 +17,14 @@ export default function HistoryTags() {
     }, [player, query_and_set])
     
     return (
-        <div className="flex flex-col justify-center items-center bg-white shadow-sm">
+        <div className="flex flex-col justify-center items-center bg-white 
+        shadow-sm w-full border-2 border-x-orange-500">
             { tags.length === 0 && <h1 className="text-sm font-extralight italic">No History</h1>}
             { tags.map((tag, index) => 
                 <div 
                 key={index} 
-                className={`p-2 flex flex-row justify-evenly items-center
-                cursor-pointer hover:bg-slate-300 
+                className={`p-2 flex flex-row justify-start items-center
+                cursor-pointer hover:bg-slate-300 w-full
                 ${player?.tag === tag.tag ? 'bg-slate-300' : ''}`}
                 onClick={async () => {
                     await switchPlayer(tag.tag);

@@ -18,7 +18,11 @@
       },
       "http": {
         "all": true,
-        "scope": ["https://api.clashofclans.com/v1/*", "https://ctbb.gabriel-cheng.com/v1/*"]
+        "scope": [
+          "https://api.clashofclans.com/v1/*", 
+          "https://ctbb.gabriel-cheng.com/v1/*", 
+          "http://localhost:3030/v1/*"
+        ]
       }
     },
     "bundle": {
