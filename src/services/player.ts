@@ -5,10 +5,10 @@ export const get_player = async (player_tag: string) => {
     const encoded_tag = encodeURIComponent(player_tag);
 
     
-    return await http.fetch(`https://ctbb.gabriel-cheng.com/v1/players/${encoded_tag}`, {
+    return await http.fetch(`https://gccld.top/v1/players/${encoded_tag}`, {
         method: 'GET',
         headers: {
-            Authorization: "STAR_STRIKE_TOKEN",
+            Authorization: "STAR_STRIKE_CLAN",
         }
     })
 
