@@ -7,6 +7,15 @@
 
 This project is based on Tauri, React and Typescript in Vite.
 
-## Recommended IDE Setup
+## Setup
+```bash
+# install dependencies
+yarn
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+# run dev
+yarn tauri dev
+```
+
+## Disclaimers
+
+This material is unofficial and is not endorsed by Supercell. For more information see Supercell's Fan [Content Policy](www.supercell.com/fan-content-policy).
