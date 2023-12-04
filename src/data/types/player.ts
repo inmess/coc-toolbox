@@ -93,16 +93,13 @@ export type PlayerInfo = {
     // Label[];
 
     /** An array of player's troops (including pets and seige machines). */
-    troops: any[];
-    // Troop[];
+    troops: Troop[];
 
     /** An array of player's spells. */
-    spells: any[];
-    // Spell[];
+    spells: Spell[];
 
     /** An array of player's heroes (both home base and build base). */
-    heroes: any[];
-    // Hero[];
+    heroes: Hero[];
 
     /** The player's clan capital house details. */
     playerHouse?: any;
@@ -127,4 +124,79 @@ type PlayerClan = {
 	badge: {
         url: string;
     };
+}
+
+type Troop = {
+    /** The troop ID. */
+    id: number;
+
+    /** The troop name. */
+    name: string;
+
+    /** The troop damage per second. */
+    dps: number;
+
+    /** The troop level. */
+    level: number;
+
+    /** The troop village. */
+    village: "home" | "builderBase";
+
+    /** The troop max level. */
+    maxLevel: number;
+
+    /** The troop max level for the player's Town Hall level. */
+    hallMaxLevel: number;
+
+    /** The troop upgrade resource. */
+    upgradeResource: string;
+}
+
+type Spell = {
+    /** The spell ID. */
+    id: number;
+
+    /** The spell name. */
+    name: string;
+
+    /** The spell level. */
+    level: number;
+
+    /** The spell village. */
+    village: "home";
+
+    /** The spell max level. */
+    maxLevel: number;
+
+    /** The spell max level for the player's Town Hall level. */
+    hallMaxLevel: number;
+
+    /** The spell upgrade resource. */
+    upgradeResource: string;
+}
+
+type Hero = {
+    /** The hero ID. */
+    id: number;
+
+    /** The hero name. */
+    name: string;
+
+    /** The hero damage per second. */
+    dps: number;
+
+    /** The hero level. */
+    level: number;
+
+    /** The hero village. */
+    village: "home" | "builderBase";
+
+    /** The hero max level. */
+    maxLevel: number;
+
+    /** The hero max level for the player's Town Hall level. */
+    hallMaxLevel: number;
+
+    /** The hero upgrade resource. */
+    upgradeResource: string;
 }

@@ -43,13 +43,13 @@ export default function PlayerHeader(props: PlayerHeaderProps) {
                 </div>
             
             </div>}
-            <div className="flex flex-row justify-start items-center p-2">
+            {/* <div className="flex flex-row justify-start items-center p-2">
                 <img src={playerInfo.league.icon.url} alt={playerInfo.league.name} width={100} height={100}/>
                 <div className="flex-col justify-start p-3">
                     <h1 className="text-lg font-bold ">{playerInfo.league.name}</h1>    
                     <h1 className="text-lg font-semibold italic">{playerInfo.trophies}</h1>    
                 </div>
-            </div>
+            </div> */}
             <div className="flex flex-row justify-start items-center p-2">
                 <img src={playerInfo.league.icon.url} alt={playerInfo.league.name} width={100} height={100} />
                 <div className="flex-col justify-start p-3">
