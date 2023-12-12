@@ -23,6 +23,9 @@
           "https://gccld.top/v1/*",
           "http://localhost:3030/v1/*"
         ]
+      },
+      "os": {
+        "all": true
       }
     },
     "bundle": {
