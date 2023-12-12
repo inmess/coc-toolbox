@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { FaCheckCircle } from "react-icons/fa";
 
 interface UnitLevelBarProps {
     hallMaxLevel: number;
@@ -32,12 +32,19 @@ export default function UnitLevelBar(props: UnitLevelBarProps) {
 
                 const isTarget = rep_level <= targetLevel;
                 const isReached = rep_level <= unitLevel;
+                const isHallMax = rep_level > hallMaxLevel;
 
                 return <LevelBarProgressBit
                     key={i}
                     className={`
                     cursor-pointer w-3
-                    ${isTarget ? (isReached ? 'bg-green-500' : 'bg-amber-500') : 'bg-gray-500'}
+                    ${isTarget 
+                        ? (isReached 
+                            ? 'bg-green-500' 
+                            : isHallMax
+                                ? 'bg-pink-500'
+                                : 'bg-amber-500') 
+                        : 'bg-gray-500'}
                     `}
                     onClick={() => {
                         if(rep_level <= unitLevel) return;
@@ -47,6 +54,7 @@ export default function UnitLevelBar(props: UnitLevelBarProps) {
                 />
             })}
             <h1 className="p-1 text-lg font-semibold">{unitLevel}/{hallMaxLevel}</h1>
+            { unitLevel === hallMaxLevel && <FaCheckCircle className="text-green-500" />}
             <h1 className="font-extralight italic">Target: {targetLevel}</h1>
         </div>
     )
