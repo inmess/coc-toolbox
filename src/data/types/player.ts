@@ -150,6 +150,9 @@ type Troop = {
 
     /** The troop upgrade resource. */
     upgradeResource: string;
+
+    /** [Super Troops only] The minimum troop original level. */
+    minOriginalLevel: number | null;
 }
 
 type Spell = {

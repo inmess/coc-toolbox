@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import TagSearch from "../frags/tag-search";
 import HistoryTags from "../frags/history-tags";
 import { FaExchangeAlt, FaBars } from "react-icons/fa";
+import { useOnClickOutside } from "usehooks-ts";
 
 export default function HomeHeader() {
 
     const [historyVisible, setHistoryVisible] = useState(false);
 
+    const historyRef = useRef(null)
+
+    useOnClickOutside(historyRef, () => setHistoryVisible(false));
     return (
         <div className="fixed top-0 w-full 
         flex flex-col justify-center items-center">
@@ -22,7 +26,7 @@ export default function HomeHeader() {
                     
             </div>
             
-            <div className="w-full h-1 flex flex-row">
+            <div className="w-full h-1 flex flex-row" ref={historyRef}>
                 {historyVisible && 
                     <div className="absolute right-0 w-[200px] select-none">
                         <HistoryTags />
