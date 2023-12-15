@@ -1,8 +1,11 @@
 import { PlayerInfo } from "@/data/types";
 import PlayerHeader from "../frags/player-header";
-import UnitLevelBar from "../frags/level-bar";
+// import UnitLevelBar from "../frags/level-bar";
 import ProgressBar from "../atoms/progress-bar";
 import ProgressCircle from "../atoms/progress-circle";
+import UnitLevelWall from "../frags/unit-level-wall";
+import { unit_all } from "@/data/types/unit";
+import { Hero, Spell, Troop } from "@/data/types/player";
 
 interface PlayerDashboardProps {
     playerInfo: PlayerInfo;
@@ -12,26 +15,70 @@ interface PlayerDashboardProps {
 const getUpgradeProgress = (units: {
     level: number;
     hallMaxLevel: number;
+    unlocked: boolean;
 }[]) => {
-    const total = units.reduce((acc, curr) => acc + curr.level, 0);
-    const maxTotal = units.reduce((acc, curr) => acc + curr.hallMaxLevel, 0);
+    const total = units.reduce((acc, curr) => curr.unlocked? acc + curr.level: acc, 0);
+    const maxTotal = units.reduce((acc, curr) => curr.unlocked? acc + curr.hallMaxLevel: acc, 0);
 
     return total / maxTotal;
 }
 
+const convertUnitName = (name: string) => name.replace(/ /g, '_').replace(/\./g, '').toLowerCase();
+
+type UnitData = {
+    troops: (Troop & { unlocked: boolean })[];
+    pets: (Troop & { unlocked: boolean })[];
+    siege_machines: (Troop & { unlocked: boolean })[];
+    super_troops: (Troop & { unlocked: boolean })[];
+    spells: (Spell & { unlocked: boolean })[];
+    heroes: (Hero & { unlocked: boolean })[];
+    builderBase_heros: (Hero & { unlocked: boolean })[];
+    builderBase_troops: (Troop & { unlocked: boolean })[];
+};
+
+const sortUnitData = (playerInfo: PlayerInfo) => {
+
+    const data = Object.keys(unit_all).reduce<UnitData>((acc, curr) => {
+        return {
+            ...acc,
+            [curr]: unit_all[curr as keyof typeof unit_all].map(t => {
+                let unit = null;
+                if(curr === "heroes" || curr === "builderBase_heros") {
+                    unit = playerInfo.heroes.find(pt => convertUnitName(pt.name) === t);
+                } else if (curr === "spells") {
+                    unit = playerInfo.spells.find(pt => convertUnitName(pt.name) === t);
+                } else {
+                    unit = playerInfo.troops.find(pt => convertUnitName(pt.name) === t);
+                }
+                if (unit) return { ...unit, unlocked: true};
+                return { name: t, unlocked: false }
+            })
+        }
+    }, {} as UnitData)
+
+    return data
+
+
+}
+
 export default function PlayerDashboard({ playerInfo }: PlayerDashboardProps) {
 
+    const {
+        troops,
+        pets,
+        siege_machines,
+        super_troops,
+        spells,
+        heroes,
+        builderBase_heros,
+        builderBase_troops,
+    } = sortUnitData(playerInfo);    
 
-    const normal_troops = playerInfo.troops.filter(t => t.village == "home" && !t.minOriginalLevel);
+    const troops_progress = getUpgradeProgress(troops);
+    const spells_progress = getUpgradeProgress(spells);
+    const heroes_progress = getUpgradeProgress(heroes);
 
-    const super_troops = playerInfo.troops.filter(t => t.village == "home" && t.minOriginalLevel);
-
-    const builderbase_troops = playerInfo.troops.filter(t => t.village !== "home");
-
-    const troops_progress = getUpgradeProgress(normal_troops);
-    const spells_progress = getUpgradeProgress(playerInfo.spells);
-    const heroes_progress = getUpgradeProgress(playerInfo.heroes);
-    const builderbase_progress = getUpgradeProgress(builderbase_troops);
+    const builderbase_progress = (getUpgradeProgress(builderBase_troops) + getUpgradeProgress(builderBase_heros)) / 2;
 
     const overall_tech_progress = (troops_progress + spells_progress + heroes_progress + builderbase_progress) / 4;
 
@@ -72,83 +119,38 @@ export default function PlayerDashboard({ playerInfo }: PlayerDashboardProps) {
                 </div>
             </div>
             <div className="w-1/2">
-                <ProgressCircle progress={overall_tech_progress} />
+                <ProgressCircle title="Overall" progress={overall_tech_progress} />
             </div>
         </div>
-        
-        <div className="flex flex-row flex-wrap w-full justify-center items-center my-4 px-7">
-            {normal_troops.map((troop, index) => (
-                <div className={`flex relative m-1 w-14 h-14 rounded-md overflow-hidden
-                ${troop.minOriginalLevel? 'border-2 border-yellow-400': ''}`} key={index}>
-                    <img 
-                    width={100}
-                    height={100}
-                    src={`https://assets.colinschmale.dev/warreport/troops/${troop.name}.png`} />
-                    <div className={`absolute bottom-0 right-0 
-                    ${troop.level < troop.hallMaxLevel ? 'bg-black': troop.level === troop.maxLevel 
-                    ? 'bg-yellow-500': 'bg-green-500'} 
-                    h-5 w-5 flex justify-center items-center rounded-tl-md`}>
-                        <h1 className="h-6 w-6 text-center font-semibold text-white">{troop.level}</h1>
-                    </div>
-                </div>
-            ))}
-
-            
-        </div>
-        <div className="flex flex-row flex-wrap w-full justify-center items-center my-4 px-7">
-            {playerInfo.spells.map((troop, index) => (
-                <div className={`flex relative m-1 w-14 h-14 rounded-md overflow-hidden`} key={index}>
-                    <img 
-                    width={100}
-                    height={100}
-                    src={`https://assets.colinschmale.dev/warreport/spells/${troop.name}.png`} />
-                    <div className={`absolute bottom-0 right-0 
-                    ${troop.level < troop.hallMaxLevel ? 'bg-black': troop.level === troop.maxLevel 
-                    ? 'bg-yellow-500': 'bg-green-500'} 
-                    h-5 w-5 flex justify-center items-center rounded-tl-md`}>
-                        <h1 className="h-6 w-6 text-center font-semibold text-white">{troop.level}</h1>
-                    </div>
-                </div>
-            ))}
-
-            
-        </div>
-        <div className="flex flex-row flex-wrap w-full justify-center items-center my-4 px-7">
-            {super_troops.map((troop, index) => (
-                <div className={`flex relative m-1 w-14 h-14 rounded-md overflow-hidden
-                ${troop.minOriginalLevel? 'border-2 border-yellow-400': ''}`} key={index}>
-                    <img 
-                    width={100}
-                    height={100}
-                    src={`https://assets.colinschmale.dev/warreport/troops/${troop.name}.png`} />
-                    <div className={`absolute bottom-0 right-0 ${troop.level < troop.hallMaxLevel 
-                        ? 'bg-black': 'bg-green-500'}  h-5 w-5
-                    flex justify-center items-center rounded-tl-md`}>
-                        <h1 className={`
-                        h-6 w-6 text-center font-semibold text-white`}>{troop.level}</h1>
-                    </div>
-                </div>
-            ))}
-        </div>
-
-        <div className="flex flex-row flex-wrap w-full justify-center items-center my-4 px-7">
-            {builderbase_troops.map((troop, index) => (
-                <div className={`flex relative m-1 w-14 h-14 rounded-md overflow-hidden
-                ${troop.minOriginalLevel? 'border-2 border-yellow-400': ''}`} key={index}>
-                    <img 
-                    width={100}
-                    height={100}
-                    src={`https://assets.colinschmale.dev/warreport/troops/${troop.name}.png`} />
-                    <div className={`absolute bottom-0 right-0 ${troop.level < troop.hallMaxLevel 
-                        ? 'bg-black': 'bg-green-500'}  h-5 w-5
-                    flex justify-center items-center rounded-tl-md`}>
-                        <h1 className={`
-                        h-6 w-6 text-center font-semibold text-white`}>{troop.level}</h1>
-                    </div>
-                </div>
-            ))}
-        </div>
-        
+        <h1>Troops</h1>
+        <UnitLevelWall 
+            units={troops}
+            iconBaseUrl="/army/home-troops/"
+        />
+        <UnitLevelWall 
+            units={pets}
+            iconBaseUrl="/army/home-troops/"
+        />
+        <UnitLevelWall 
+            units={siege_machines}
+            iconBaseUrl="/army/home-troops/"
+        />
+        <UnitLevelWall 
+            units={super_troops}
+            iconBaseUrl="/army/super-troops/"
+        />
+        <UnitLevelWall 
+            units={spells}
+            iconBaseUrl="/army/home-spells/"
+        />
+        <UnitLevelWall 
+            units={heroes}
+            iconBaseUrl="/army/heroes/"
+        />
+        <UnitLevelWall 
+            units={builderBase_troops}
+            iconBaseUrl="/army/heroes/"
+        />
         {/* <table className="w-2/3">
         <tr>
             <th>Unit</th>

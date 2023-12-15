@@ -126,7 +126,7 @@ type PlayerClan = {
     };
 }
 
-type Troop = {
+export type Troop = {
     /** The troop ID. */
     id: number;
 
@@ -142,6 +142,9 @@ type Troop = {
     /** The troop village. */
     village: "home" | "builderBase";
 
+    /** The troop building. */
+    unlockBuilding: "Barracks" | "Dark Barracks" | "Builder Barracks" | "Workshop" | "Pet House";
+
     /** The troop max level. */
     maxLevel: number;
 
@@ -155,7 +158,7 @@ type Troop = {
     minOriginalLevel: number | null;
 }
 
-type Spell = {
+export type Spell = {
     /** The spell ID. */
     id: number;
 
@@ -178,7 +181,7 @@ type Spell = {
     upgradeResource: string;
 }
 
-type Hero = {
+export type Hero = {
     /** The hero ID. */
     id: number;
 

@@ -12,7 +12,7 @@ export default function HomeHeader() {
 
     useOnClickOutside(historyRef, () => setHistoryVisible(false));
     return (
-        <div className="fixed top-0 w-full 
+        <div className="fixed top-0 w-full z-50
         flex flex-col justify-center items-center">
             <div className="flex flex-row w-full justify-between items-center bg-yellow-300/50 p-2">
                 <div className="text-lg">
