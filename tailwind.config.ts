@@ -9,7 +9,8 @@ export default {
         extend: {},
     },
     plugins: [
-        require('@tailwindcss/forms')
+        require('@tailwindcss/forms'),
+        require("@designbycode/tailwindcss-text-stroke"),
     ],
 } satisfies Config
 

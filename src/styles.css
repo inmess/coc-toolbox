@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* @layer utilities {
+  text-stroke-1 {
+    -webkit-text-stroke: 1px;
+  }
+} */
 /* :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;

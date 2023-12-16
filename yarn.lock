@@ -220,6 +220,11 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
+"@designbycode/tailwindcss-text-stroke@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@designbycode/tailwindcss-text-stroke/-/tailwindcss-text-stroke-1.2.1.tgz#53180ad7dfefe506a9d506e8b4c1c29356f8367f"
+  integrity sha512-6SqiFuMjJaWWv5Mm+RIu8Ui3Kc/8AK3m0qSocPOFhk4yS6aMVioy8QLghAj5KOR/8lsfZe3r7I1uJ7YM1FimUA==
+
 "@esbuild/android-arm64@0.18.20":
   version "0.18.20"
   resolved "https://registry.yarnpkg.com/@esbuild/android-arm64/-/android-arm64-0.18.20.tgz#984b4f9c8d0377443cc2dfcef266d02244593622"

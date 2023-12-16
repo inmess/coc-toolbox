@@ -8,3 +8,7 @@ export const tagsAtom = atomWithStorage<{
 }[]>("player_tags", [])
 
 export const playerAtom = atom<PlayerInfo| null>(null)
+
+export const userTokenAtom = atomWithStorage<string | null>("user_token", null)
+
+export const verificationAtom = atom(false)
