@@ -1,4 +1,4 @@
-import { playerAtom, tagsAtom } from "@/services/atoms";
+import { playerAtom, tagsAtom, userTokenAtom } from "@/services/atoms";
 import { useAtom } from "jotai";
 import { get_player } from "@/services/player";
 import { PlayerInfo } from "@/data/types";
@@ -10,6 +10,8 @@ export default function usePlayers () {
 
     const [currPlayer, setCurrPlayer] = useAtom(playerAtom);
 
+    const [ user_token ] = useAtom(userTokenAtom);
+
     // const currPlayer = (currPlayer !== '' && currPlayer !== 'not specified') ? players[currPlayer] : null;
 
 
@@ -20,7 +22,7 @@ export default function usePlayers () {
     const query_and_set = useCallback(async (tag: string) => {
         try {
             
-            const res = await toast.promise(get_player(tag), {
+            const res = await toast.promise(get_player(tag, user_token ?? ''), {
                 success: 'Got Player Info',
                 pending: 'Fetching Player Info...',
                 error: 'Failed to fetch player info'
@@ -39,7 +41,7 @@ export default function usePlayers () {
         } catch (error) {
             console.error(error);
         }
-    }, [tags, add_tag, setCurrPlayer])
+    }, [tags, add_tag, setCurrPlayer, user_token])
 
 
 

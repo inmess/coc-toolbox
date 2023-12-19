@@ -11,6 +11,7 @@ export default {
     plugins: [
         require('@tailwindcss/forms'),
         require("@designbycode/tailwindcss-text-stroke"),
+        require("tailwindcss-animate")
     ],
 } satisfies Config
 

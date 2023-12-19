@@ -1,7 +1,7 @@
 import { userTokenAtom, verificationAtom } from "@/services/atoms"
 import { verify_user } from "@/services/verify"
 import { useAtom } from "jotai"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useInterval } from "usehooks-ts"
 
 export default function UserVerifyScreen() {
@@ -33,6 +33,10 @@ export default function UserVerifyScreen() {
         }
         setVerifying(false)
     }
+
+    useEffect(() => {
+        if(_t) verifyUser(_t);
+    }, [_t])
 
     useInterval(() => {
         setGreeting(g => g + 1 == greetInfo.length ? 0: g + 1)

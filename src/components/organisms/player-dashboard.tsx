@@ -87,8 +87,8 @@ export default function PlayerDashboard({ playerInfo }: PlayerDashboardProps) {
         <PlayerHeader
             playerInfo={playerInfo}
         />
-        <div className="w-full flex flex-row justify-center items-center">
-            <div className="w-1/2">
+        <div className="w-full flex flex-row justify-center items-center pb-10">
+            <div className="w-6/12">
                 <div className="flex flex-row justify-center items-center">
                     <h1 className="px-2 w-1/3 text-right">Troops</h1>
                     <div className="w-1/3">
@@ -118,35 +118,53 @@ export default function PlayerDashboard({ playerInfo }: PlayerDashboardProps) {
                     <h1 className="px-2 font-semibold">{(builderbase_progress * 100).toFixed(2)}%</h1>
                 </div>
             </div>
-            <div className="w-1/2">
+            <div className="w-1/2 flex flex-row">
                 <ProgressCircle title="Overall" progress={overall_tech_progress} />
+                <div className="w-1/2 flex flex-col justify-center items-center">
+                    <h1 className="text-lg font-extralight">Theoretically</h1>
+                    <h1 className="text-lg font-extralight">Lowest Cost</h1>
+                    <h1 className="text-lg font-semibold">Under Maintenance 🛠️</h1>
+                </div>
             </div>
+            
         </div>
-        <h1>Troops</h1>
+        <h1 className="text-lg font-bold px-5 italic">Troops</h1>
         <UnitLevelWall 
             units={troops}
             iconBaseUrl="/army/home-troops/"
         />
+
+        <h1 className="text-lg font-bold px-5 italic">Pets</h1>
         <UnitLevelWall 
             units={pets}
             iconBaseUrl="/army/home-troops/"
         />
+
+        <h1 className="text-lg font-bold px-5 italic">Siege Machine</h1>
         <UnitLevelWall 
             units={siege_machines}
             iconBaseUrl="/army/home-troops/"
         />
+
+        <h1 className="text-lg font-bold px-5 italic">Super Troops</h1>
         <UnitLevelWall 
             units={super_troops}
             iconBaseUrl="/army/super-troops/"
         />
+
+        <h1 className="text-lg font-bold px-5 italic">Spells</h1>
         <UnitLevelWall 
             units={spells}
             iconBaseUrl="/army/home-spells/"
         />
+
+        <h1 className="text-lg font-bold px-5 italic">Heros</h1>
         <UnitLevelWall 
             units={heroes}
             iconBaseUrl="/army/heroes/"
         />
+
+        <h1 className="text-lg font-bold px-5 italic">Builderbase</h1>
         <UnitLevelWall 
             units={builderBase_troops}
             iconBaseUrl="/army/heroes/"

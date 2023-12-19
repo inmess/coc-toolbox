@@ -14,7 +14,7 @@ interface UnitLevelWallProps {
 export default function UnitLevelWall (props: UnitLevelWallProps) {
 
     return (
-    <div className="flex flex-row flex-wrap w-full justify-center items-end my-4 px-7">
+    <div className="flex flex-row flex-wrap w-full justify-start items-end mb-4 px-7">
         {props.units.map((troop, index) => (
             <div className={`flex relative m-1 w-14  rounded-lg overflow-hidden
             ${troop.minOriginalLevel? 'border-2 border-yellow-400': ''}`} key={index}>
