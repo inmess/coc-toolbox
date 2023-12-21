@@ -21,6 +21,7 @@
         "scope": [
           "https://api.clashofclans.com/v1/*", 
           "https://gccld.top/v1/*",
+          "http://gccld.top/v1/*",
           "http://localhost:3030/v1/*"
         ]
       },
